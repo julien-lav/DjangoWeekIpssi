@@ -1,0 +1,5 @@
+User (Teacher / Student)
+Course
+User_course
+Resource
+Category
