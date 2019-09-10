@@ -14,17 +14,12 @@
 			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous">
     </script>
-    {% analytical_head_bottom %}
   </head>
   <body>
-  {% analytical_body_top %}
   <header>
     <nav class="navbar navbar-light bg-light">
-<<<<<<< HEAD
       <a class="navbar-brand">Django music</a>
-=======
-      <a href="/" class="navbar-brand">Django music</a> 
->>>>>>> e9b7323040d89ce6d25ef490fe4e4c9bb81f0184
+      <a href="/" class="navbar-brand">Django music</a>
       {% if user.is_authenticated %}
         <ul class="navbar navbar-right">
           <li class="liste-style-none">
@@ -32,11 +27,7 @@
           </li>
       {% else %}
           <li>
-<<<<<<< HEAD
-            <a href="/register">register</a> or <a href="/accounts/login">login</a>
-=======
-            <a href="{% url 'register' %}">register</a> or <a href="{% url 'login' %}">login</a> 
->>>>>>> e9b7323040d89ce6d25ef490fe4e4c9bb81f0184
+            <a href="{% url 'register' %}">register</a> or <a href="{% url 'login' %}">login</a>
           </li>
         </ul>
       {% endif %}
@@ -59,7 +50,6 @@
         </div>
       </div>
     </div>
-  {% analytical_body_bottom %}
   </body>
   <script src="{% static 'js/main.js' %}"></script>
 </html>
