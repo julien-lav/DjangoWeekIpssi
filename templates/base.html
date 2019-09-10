@@ -15,7 +15,7 @@
   <body>
   <header>
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand">Django music</a> 
+      <a href="/" class="navbar-brand">Django music</a> 
       {% if user.is_authenticated %}
         <ul class="navbar navbar-right"> 
           <li class="liste-style-none">
@@ -23,7 +23,7 @@
           </li>
       {% else %}
           <li>
-            <a href="/register">register</a> or <a href="/accounts/login">login</a> 
+            <a href="{% url 'register' %}">register</a> or <a href="{% url 'login' %}">login</a> 
           </li>
         </ul> 
       {% endif %}
@@ -32,7 +32,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-8">
-          <h1 class="mt-2 page-title">Lessons of the day</h1>
+          <h1 class="mt-2 page-title">{% if pageTitle  %} {{ pageTitle }} {% else %} Lessons of the day {% endif %}</h1>
           <hr class="mt-0 mb-4">
            {% if messages %}
             {% for message in messages %}
