@@ -1,0 +1,1 @@
+$('.page-title').fadeIn(3000);
