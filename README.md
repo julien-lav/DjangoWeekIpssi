@@ -25,4 +25,12 @@ python manage.py migrate
 To manage images in django:
 ```
 pip install pillow
+pip install django-crispy-forms
+
+```
+```
+pip freeze >>  requirements.txt
+```
+```
+pip install -r requirements.txt
 ```
