@@ -11,6 +11,7 @@ from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 import numpy as np
 from io import BytesIO
+import base64
 
 def index(request):
     return render(request, 'dashboard/index.html')
@@ -47,7 +48,9 @@ def graph(request):
     FigureCanvasAgg(fig)
 
     buf = BytesIO()
-    plt.savefig(buf, format='png')
+    plt.savefig(buf, format='png', dpi=300)
+    image_base64 = base64.b64encode(buf.getvalue()).decode('utf-8').replace('\n', '')
     plt.close(fig)
-    response = HttpResponse(buf.getvalue(), content_type='image/png')
-    return response
+    #response = HttpResponse(buf.getvalue(), content_type='image/png')
+    #return response
+    return render(request, 'dashboard/graph.html', {'graph': image_base64})

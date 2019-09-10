@@ -1,7 +1,4 @@
 db.sqlite3
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -12,6 +9,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+.gitignore
 .Python
 env/
 build/
@@ -115,10 +113,8 @@ media/
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
-=======
+
 *.pyc
->>>>>>> 324cc2371217a044097a75d6099dda39b194c85e
-=======
 *.log
 *.pot
 *.pyc
@@ -128,4 +124,3 @@ polls/migrations/__pycache__/*.pyc
 users/__pycache__/*.pyc
 users/migrations/__pycache__/*.pyc
 musicSchool/__pycache__/*.pyc
->>>>>>> 07ba2c29439af12f1773c512a8f504855ba71260
