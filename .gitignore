@@ -3,3 +3,7 @@ db.sqlite3
 *.pot
 *.pyc
 __pycache__/
+polls/__pycache__/*.pyc
+polls/migrations/__pycache__/*.pyc
+users/__pycache__/*.pyc
+users/migrations/__pycache__/*.pyc
