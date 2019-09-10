@@ -20,7 +20,11 @@
   {% analytical_body_top %}
   <header>
     <nav class="navbar navbar-light bg-light">
+<<<<<<< HEAD
       <a class="navbar-brand">Django music</a>
+=======
+      <a href="/" class="navbar-brand">Django music</a> 
+>>>>>>> e9b7323040d89ce6d25ef490fe4e4c9bb81f0184
       {% if user.is_authenticated %}
         <ul class="navbar navbar-right">
           <li class="liste-style-none">
@@ -28,7 +32,11 @@
           </li>
       {% else %}
           <li>
+<<<<<<< HEAD
             <a href="/register">register</a> or <a href="/accounts/login">login</a>
+=======
+            <a href="{% url 'register' %}">register</a> or <a href="{% url 'login' %}">login</a> 
+>>>>>>> e9b7323040d89ce6d25ef490fe4e4c9bb81f0184
           </li>
         </ul>
       {% endif %}
@@ -37,7 +45,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-8">
-          <h1 class="mt-2 page-title">Lessons of the day</h1>
+          <h1 class="mt-2 page-title">{% if pageTitle  %} {{ pageTitle }} {% else %} Lessons of the day {% endif %}</h1>
           <hr class="mt-0 mb-4">
            {% if messages %}
             {% for message in messages %}
