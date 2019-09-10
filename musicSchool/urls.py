@@ -27,8 +27,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),  
     path('register/', user_views.register, name='register'),
+    path('resources/', include('resources.urls')),
     path('profile/', user_views.profile, name='profile'),
     ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+   
+
