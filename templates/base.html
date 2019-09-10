@@ -1,31 +1,35 @@
+{% load analytical %}
 <!DOCTYPE html>
 <html>
   <head>
+    {% analytical_head_top %}
     <meta charset="utf-8">
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}{% endblock %} Django Music</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script
 			src="https://code.jquery.com/jquery-3.4.1.min.js"
 			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"></script>  
+      crossorigin="anonymous">
+    </script>
   </head>
   <body>
   <header>
     <nav class="navbar navbar-light bg-light">
-      <a href="/" class="navbar-brand">Django music</a> 
+      <a class="navbar-brand">Django music</a>
+      <a href="/" class="navbar-brand">Django music</a>
       {% if user.is_authenticated %}
-        <ul class="navbar navbar-right"> 
+        <ul class="navbar navbar-right">
           <li class="liste-style-none">
             <a href="/accounts/logout/">logout</a>
           </li>
       {% else %}
           <li>
-            <a href="{% url 'register' %}">register</a> or <a href="{% url 'login' %}">login</a> 
+            <a href="{% url 'register' %}">register</a> or <a href="{% url 'login' %}">login</a>
           </li>
-        </ul> 
+        </ul>
       {% endif %}
     </nav>
   </header>
@@ -47,5 +51,5 @@
       </div>
     </div>
   </body>
-  <script src="{% static 'js/main.js' %}"></script> 
+  <script src="{% static 'js/main.js' %}"></script>
 </html>

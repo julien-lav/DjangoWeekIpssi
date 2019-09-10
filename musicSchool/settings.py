@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'dashboard.apps.DashboardConfig',
     'users.apps.UsersConfig',
     'resources.apps.ResourcesConfig',
     'django.contrib.admin',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'analytical'
 ]
 
 MIDDLEWARE = [
@@ -133,4 +135,4 @@ LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
+CLICKY_SITE_ID= '101208004'
