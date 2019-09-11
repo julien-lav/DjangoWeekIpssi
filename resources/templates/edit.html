@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Ajouter une ressource |{% endblock %}
+{% block title %}Modifier une ressource |{% endblock %}
 
 {% block content %}
 
-<form method="post" action="/resources/add/">
+<form method="post" action="/resources/{{ resource_id }}/edit/">
     {% load crispy_forms_tags %}
     {% csrf_token %}
     
@@ -14,7 +14,7 @@
       </div>
     </div>
     
-    <input type="submit" value="ajouter" class="btn btn-primary float-right"/>
+    <input type="submit" value="modifier" class="btn btn-primary float-right"/>
 </form>
 
 {% endblock %}
