@@ -13,10 +13,23 @@ import numpy as np
 from io import BytesIO
 import base64
 
+from .logic_for_dashboard import register_visit, get_visits, get_visits_by_sections, build_bar_chart, db
+
+
 def index(request):
-    return render(request, 'dashboard/index.html')
+    #register_visit(request=request)
+    visits = get_visits()
+    visits_by_sections = get_visits_by_sections()
+    graph = build_bar_chart()
+    return render(request, 'dashboard/index.html', {"visits": visits, "visits_by_sections": visits_by_sections, "graph": graph})
+
+
+def create_graph(request):
+    register_visit(request=request)
+    return render(request, 'dashboard/create_graph.html')
 
 def custom_graph(request):
+    register_visit(request=request)
     fig = plt.figure()
     ax = fig.add_subplot(111)
     if request.method == "POST":
@@ -39,6 +52,7 @@ def custom_graph(request):
 
 
 def graph(request):
+    register_visit(request=request)
     fig = plt.figure()
     ax = fig.add_subplot(111)
     x = np.arange(-2,1.5,.01)
