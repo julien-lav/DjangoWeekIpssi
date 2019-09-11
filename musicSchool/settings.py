@@ -31,9 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
-    'dashboard.apps.DashboardConfig',
+    'polls.apps.PollsConfig',    
     'users.apps.UsersConfig',
+    'dashboard.apps.DashboardConfig',
     'resources.apps.ResourcesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'analytical'
+    'analytical',
+    'phonenumber_field'
 ]
 
 MIDDLEWARE = [
@@ -127,8 +128,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
