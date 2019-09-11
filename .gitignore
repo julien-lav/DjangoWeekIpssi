@@ -8,4 +8,8 @@ polls/migrations/__pycache__/*.pyc
 users/__pycache__/*.pyc
 users/migrations/__pycache__/*.pyc
 musicSchool/__pycache__/*.pyc
+<<<<<<< HEAD
 dashboard/__pycache__/*.pyc
+=======
+dashboard/__pycache__/*.pyc
+>>>>>>> 8658f468d22b41e7134efa77510e0c3d0a177542

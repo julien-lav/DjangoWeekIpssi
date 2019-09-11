@@ -6,3 +6,8 @@ class AddResourceForm(forms.ModelForm):
         model = Resource
         exclude = ["user"]
 
+class EditResourceForm(forms.ModelForm):
+    class Meta:
+        model = Resource
+        exclude = ["user"]
+
