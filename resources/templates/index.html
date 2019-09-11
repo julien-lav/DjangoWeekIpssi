@@ -15,7 +15,7 @@
                     <td><a target="_blank" href="{{ resource.url }}">{{ resource.url }}</a></td>
                     <td class="text-right">
                         <a href="{{ resource.id }}/edit"><i class="fa fa-edit"></i></a> |
-                        <a href="{{ resource.id }}/delete"><i class="fa fa-trash"></i></a>
+                        <a href="{{ resource.id }}/delete" onclick="return confirm('Voulez-vous vraiment supprimer l\'url {{ resource.url }}?');"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             {% endfor %}
