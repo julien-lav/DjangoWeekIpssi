@@ -37,6 +37,15 @@ def get_visits_by_sections():
     return visits_by_sections
 
 
+def get_visits_by_pages(section):
+    visits_by_pages = []
+    pages = db["visits"].find({"page" : {'$regex' : '.*' + section + '.*'}}).distinct("page")
+
+    for page in pages :
+        visits = db["visits"].count({"page" : page})
+        visits_by_pages.append({"page": page, "visits": visits})
+    return visits_by_pages
+
 """
 
 Matplotlib

@@ -13,13 +13,14 @@ import numpy as np
 from io import BytesIO
 import base64
 
-from .logic_for_dashboard import register_visit, get_visits, get_visits_by_sections, build_bar_chart, db
+from .logic_for_dashboard import register_visit, get_visits, get_visits_by_sections, get_visits_by_pages, build_bar_chart, db
 
 
 def index(request):
     #register_visit(request=request)
     visits = get_visits()
     visits_by_sections = get_visits_by_sections()
+    get_visits_by_pages("/dashboard")
     graph = build_bar_chart()
     return render(request, 'dashboard/index.html', {"visits": visits, "visits_by_sections": visits_by_sections, "graph": graph})
 
