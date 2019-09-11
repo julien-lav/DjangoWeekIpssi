@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'analytical',
-    'phonenumber_field'
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +137,5 @@ LOGOUT_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CLICKY_SITE_ID= '101208004'
+
+#AUTH_USER_MODEL = 'users.role'
