@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import *
+from .forms import AddResourceForm, EditResourceForm
 from django.contrib import messages
 from .models import Resource
 
