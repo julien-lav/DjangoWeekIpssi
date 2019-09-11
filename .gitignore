@@ -9,4 +9,3 @@ users/__pycache__/*.pyc
 users/migrations/__pycache__/*.pyc
 musicSchool/__pycache__/*.pyc
 dashboard/__pycache__/*.pyc
-
