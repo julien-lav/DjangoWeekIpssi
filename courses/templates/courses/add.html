@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Ajouter un cours |{% endblock %}
+
+{% block content %}
+
+<form method="post" action="/courses/add/">
+    {% load crispy_forms_tags %}
+    {% csrf_token %}
+    
+    <div class="row">
+      <div class="col-12">
+        {{ form.topic|as_crispy_field  }}
+      </div>
+      <div class="col-12">
+        {{ form.dayOfTheWeek|as_crispy_field  }}
+      </div>
+      <div class="col-12">
+        {{ form.startTime|as_crispy_field  }}
+      </div>
+      <div class="col-12">
+        {{ form.endTime|as_crispy_field  }}
+      </div>
+    </div>
+    
+    <input type="submit" value="ajouter" class="btn btn-primary float-right"/>
+</form>
+
+{% endblock %}

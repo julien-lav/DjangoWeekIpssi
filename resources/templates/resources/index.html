@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Ressources |{% endblock %}
+
+{% block content %}
+    <p><a href="/resources/add">Ajouter une ressource</a></p>
+    <table class="table table-hover table-striped table-bordered">
+        <thead>
+            <th>URL</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {% for resource in resources %}
+                <tr>
+                    <td><a target="_blank" href="{{ resource.url }}">{{ resource.url }}</a></td>
+                    <td class="text-right">
+                        <a href="{{ resource.id }}"><i class="fa fa-eye"></i></a> |
+                        <a href="{{ resource.id }}/edit"><i class="fa fa-edit"></i></a> |
+                        <a href="{{ resource.id }}/delete" onclick="return confirm('Voulez-vous vraiment supprimer l\'url {{ resource.url }}?');"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

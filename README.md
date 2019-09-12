@@ -26,6 +26,8 @@ To manage images in django:
 ```
 pip install pillow
 pip install django-crispy-forms
+pip install django-phonenumber-field
+pip install phonenumbers
 
 ```
 ```

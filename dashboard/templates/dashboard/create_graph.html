@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Bootstrap 4 Website Example</title>
+ <meta charset="utf-8">
+ {% load static %}
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <style>
+ .fakeimg {
+   height: 200px;
+   background: #aaa;
+ }
+ </style>
+</head>
+<body>
+  <div class="container">
+    <form action="/dashboard/custom_graph" method="post">
+        {% csrf_token %}
+        <div class="row">
+
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="firstname">x1</label>
+              <input type="number" class="form-control"  min="0" max="10" value="0" name="x1">
+            </div>
+            <div class="form-group">
+              <label for="lastname">y1</label>
+              <input type="number" class="form-control" min="0" max="10" value="0" name="y1">
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="firstname">x2</label>
+              <input type="number" class="form-control" min="0" max="10" value="0" name="x2">
+            </div>
+            <div class="form-group">
+              <label for="lastname">y2</label>
+              <input type="number" class="form-control" min="0" max="10" value="0" name="y2">
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="firstname">x3</label>
+              <input type="number" class="form-control" min="0" max="10" value="0" name="x3">
+            </div>
+            <div class="form-group">
+              <label for="lastname">y3</label>
+              <input type="number" class="form-control" min="0" max="10" value="0" name="y3">
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <button class="btn btn-danger" id="reset-button">Reset</button>
+
+  </div>
+</body>
+<script src="{% static 'js/dashboard.js' %}"></script>
+</html>

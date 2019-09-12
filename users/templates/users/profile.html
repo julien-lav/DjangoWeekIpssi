@@ -1,14 +1,35 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
-      <div class="media">
-        <img class="rounded-circle account-img avatar pr-2" src="{{ user.profile.image.url }}">
-        <div class="media-body">
-          <h2 class="account-heading">{{ user.username }}</h2>
-          <p class="text-secondary">{{ user.email }}</p>
-        </div>
-      </div>
-      <!-- FORM HERE -->
+  <div class="content-section">    
+    <div class="media">
+      <img class="rounded-circle account-img avatar pr-2" src="{{ user.profile.image.url }}">
+      <div class="media-body">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        <p class="text-secondary">{{ user.email }}
+          <button class="btn btn-primary float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Edit profile
+          </button>
+          {% for user in user.relation.users %}
+            {{ user.username }}
+          {% endfor %}
+          </p>
+      </div>  
     </div>
+    <div class="collapse" id="collapseExample">
+      <div class="">
+      <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile Info</legend>
+                <!--{{ u_form|crispy }}-->
+                {{ p_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+            </div>
+        </form>
+      </div>
+    </div>    
+  </div>
 {% endblock content %}
