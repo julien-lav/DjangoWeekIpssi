@@ -5,6 +5,8 @@ from django.urls import reverse
 
 #from django.http import Http404
 
+from dashboard.logic_for_dashboard import register_visit, get_visits, db
+
 from .models import Choice, Question
 
 def index(request):
@@ -19,6 +21,7 @@ def index(request):
     #    'latest_question_list': latest_question_list,
     #}
     #return HttpResponse(template.render(context, request))
+    register_visit(request=request)
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
@@ -32,6 +35,7 @@ def detail(request, question_id):
     #except Question.DoesNotExist:
     #    raise Http404("Question does not exist")
     #return render(request, 'polls/detail.html', {'question': question})
+    register_visit(request=request)
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/detail.html', {'question': question})
 
@@ -39,10 +43,12 @@ def detail(request, question_id):
 def results(request, question_id):
     #response = "You're looking at the results of question %s."
     #return HttpResponse(response % question_id)
+    register_visit(request=request)
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
 
 def vote(request, question_id):
+    register_visit(request=request)
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])

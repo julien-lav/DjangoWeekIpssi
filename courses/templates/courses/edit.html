@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<form method="post" action="/courses/{{ resource_id }}/edit/">
+<form method="post" action="/courses/{{ course_id }}/edit/">
     {% load crispy_forms_tags %}
     {% csrf_token %}
     

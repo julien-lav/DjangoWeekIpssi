@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CourseForm
 from django.contrib import messages
-from .models import Course
+from .models import Course, DAY_OF_THE_WEEK_CHOICES
 
 def index(request):
     courses = Course.objects.filter(teacher=request.user)
@@ -34,14 +34,25 @@ def edit(request, course_id):
         form = CourseForm(request.POST)
 
         if form.is_valid():
-            Course.objects.filter(id=course_id).update(url=form.cleaned_data.get('url'))
+            # for field in form.fields:
+            #     Course.objects.filter(id=course_id).update(
+            #         field=form.cleaned_data.get(field)
+            #     )
+            Course.objects.filter(id=course_id).update(
+                topic=form.cleaned_data.get('topic'),
+                dayOfTheWeek=form.cleaned_data.get('dayOfTheWeek'),
+                startTime=form.cleaned_data.get('startTime'),
+                endTime=form.cleaned_data.get('endTime'),
+            )
 
-            url = form.cleaned_data.get('url')
-            messages.success(request, f'course {url} updated for {request.user}')
+            topic = form.cleaned_data.get('topic')
+            messages.success(request, f'course {topic} updated for {request.user}')
         return redirect('home')
     else:
         course = Course.objects.get(id=course_id)
         form = CourseForm(instance=course)
+        for field in form.fields:
+            print(field)
     
     return render(request, 'courses/edit.html', {'form': form, 'course_id': course_id})
 
