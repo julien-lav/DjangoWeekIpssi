@@ -23,55 +23,29 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">User id</th>
-              <th scope="col">Page</th>
-              <th scope="col">Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for visit in visits %}
-            <tr>
-              <td>{{visit.user_id}}</td>
-              <td>{{visit.page}}</td>
-              <td>{{visit.date}}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-
-        </table>
-      </div>
-      <div class="col-sm">
-        <table class="table">
-          <thead>
-            <tr>
               <th scope="col">Section</th>
               <th scope="col">Visites</th>
+              <th scope="col">Visites uniques</th>
             </tr>
           </thead>
           <tbody>
-            {% for visits_by_section in visits_by_sections %}
+            {% for visits_by_page in visits_by_pages %}
             <tr>
-              <td>{{visits_by_section.section}}</td>
-              <td>{{visits_by_section.visits}}</td>
+              <td>{{visits_by_page.page}}</td>
+              <td>{{visits_by_page.visits}}</td>
+              <td>{{visits_by_page.unique_visits}}</td>
             </tr>
             {% endfor %}
           </tbody>
 
         </table>
       </div>
-    </div>
 
-    <div class="row">
       <div class="col-sm">
         <img src="data:image/png;base64,{{graph}}" alt="error" width=500 height=auto />
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm">
-        <img src="data:image/png;base64,{{overtime_graph}}" alt="error" width=500 height=auto />
-      </div>
-    </div>
   </div>
 
 

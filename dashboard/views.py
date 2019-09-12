@@ -12,17 +12,25 @@ import matplotlib.pyplot as plt
 import numpy as np
 from io import BytesIO
 import base64
+from datetime import datetime
 
-from .logic_for_dashboard import register_visit, get_visits, get_visits_by_sections, get_visits_by_pages, build_bar_chart, db
+
+from .logic_for_dashboard import register_visit, get_visits, get_visits_by_sections, get_visits_by_pages, build_bar_chart, get_pages_for_section, get_visits_for_last_days, build_graph, db, sections
 
 
 def index(request):
     #register_visit(request=request)
+    overtime_graph = build_graph(get_visits_for_last_days(datetime.now(), 10))
+
     visits = get_visits()
     visits_by_sections = get_visits_by_sections()
-    get_visits_by_pages("/dashboard")
-    graph = build_bar_chart()
-    return render(request, 'dashboard/index.html', {"visits": visits, "visits_by_sections": visits_by_sections, "graph": graph})
+    graph = build_bar_chart(visits_by_sections, 'Visites par sections', 'Visites',  sections, sections)
+    return render(request, 'dashboard/index.html', {"visits": visits, "visits_by_sections": visits_by_sections, "graph": graph, "overtime_graph": overtime_graph})
+
+def section_stats(request, section_name):
+    visits_by_pages = get_visits_by_pages(section_name)
+    graph = build_bar_chart(visits_by_pages, 'Visites par pages', 'Visites', get_pages_for_section(section_name), get_pages_for_section(section_name), "visites", "visites uniques")
+    return render(request, 'dashboard/section_stats.html', {"visits_by_pages": visits_by_pages, "graph": graph})
 
 
 def create_graph(request):
