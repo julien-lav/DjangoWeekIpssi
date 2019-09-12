@@ -5,8 +5,9 @@
 {% block content %}
 
 <form method="post" action="/courses/add/">
+  
     {% load crispy_forms_tags %}
-    {% csrf_token %}
+    {% csrf_token %} 
     
     <div class="row">
       <div class="col-12">
@@ -20,6 +21,9 @@
       </div>
       <div class="col-12">
         {{ form.endTime|as_crispy_field  }}
+      </div>
+       <div class="col-12">
+        {{ form.students|as_crispy_field  }}
       </div>
     </div>
     

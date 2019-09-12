@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
+    'tempus_dominus',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
