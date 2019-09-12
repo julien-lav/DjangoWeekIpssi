@@ -7,6 +7,8 @@ app_name = 'resources'
 urlpatterns = [
     # ex: /resources/
     path('', views.index, name='resources_index'),
+    # ex: /resources/1/
+    path('<int:resource_id>/', views.show, name='resources_show'),
     # ex: /resources/add/
     path('add/', views.add, name='resources_add'),
     # ex: /resources/1/edit/

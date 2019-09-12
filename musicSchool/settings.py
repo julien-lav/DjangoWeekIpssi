@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'dashboard.apps.DashboardConfig',
     'resources.apps.ResourcesConfig',
+    'courses.apps.CoursesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'analytical',
-    'phonenumber_field'
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
