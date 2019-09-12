@@ -34,10 +34,15 @@ def edit(request, course_id):
         form = CourseForm(request.POST)
 
         if form.is_valid():
-            Course.objects.filter(id=course_id).update(url=form.cleaned_data.get('url'))
+            Course.objects.filter(id=course_id).update(
+                topic=form.cleaned_data.get('topic'),
+                dayOfTheWeek=form.cleaned_data.get('dayOfTheWeek'),
+                startTime=form.cleaned_data.get('startTime'),
+                endTime=form.cleaned_data.get('endTime'),
+            )
 
-            url = form.cleaned_data.get('url')
-            messages.success(request, f'course {url} updated for {request.user}')
+            topic = form.cleaned_data.get('topic')
+            messages.success(request, f'course {topic} updated for {request.user}')
         return redirect('home')
     else:
         course = Course.objects.get(id=course_id)
