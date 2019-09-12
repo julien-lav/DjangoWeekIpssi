@@ -28,16 +28,18 @@ def index(request):
     graph = build_bar_chart(visits_by_sections, 'Visites par sections', 'Visites',  sections, sections)
     return render(request, 'dashboard/index.html', {"visits": visits, "visits_by_sections": visits_by_sections, "graph": graph, "overtime_graph": overtime_graph})
 
+@permission_required('auth.view_user')
 def section_stats(request, section_name):
     visits_by_pages = get_visits_by_pages(section_name)
     graph = build_bar_chart(visits_by_pages, 'Visites par pages', 'Visites', get_pages_for_section(section_name), get_pages_for_section(section_name), "visites", "visites uniques")
     return render(request, 'dashboard/section_stats.html', {"visits_by_pages": visits_by_pages, "graph": graph})
 
-
+@permission_required('auth.view_user')
 def create_graph(request):
     register_visit(request=request)
     return render(request, 'dashboard/create_graph.html')
 
+@permission_required('auth.view_user')
 def custom_graph(request):
     register_visit(request=request)
     fig = plt.figure()
@@ -59,7 +61,6 @@ def custom_graph(request):
     plt.close(fig)
     response = HttpResponse(buf.getvalue(), content_type='image/png')
     return response
-
 
 def graph(request):
     register_visit(request=request)
