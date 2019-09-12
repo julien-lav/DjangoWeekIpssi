@@ -15,7 +15,7 @@ def show(request, resource_id):
 def add(request):
     if request.method == 'POST':
         form = ResourceForm(request.POST)
-
+        print(form.is_valid())
         if form.is_valid():
             resource = form.save(commit=False)
             resource.teacher = request.user
