@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CourseForm
 from django.contrib import messages
-from .models import Course
+from .models import Course, DAY_OF_THE_WEEK_CHOICES
 
 def index(request):
     courses = Course.objects.filter(teacher=request.user)
