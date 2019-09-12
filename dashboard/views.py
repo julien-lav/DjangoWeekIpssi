@@ -13,11 +13,12 @@ import numpy as np
 from io import BytesIO
 import base64
 from datetime import datetime
+from django.contrib.auth.decorators import permission_required
 
 
 from .logic_for_dashboard import register_visit, get_visits, get_visits_by_sections, get_visits_by_pages, build_bar_chart, get_pages_for_section, get_visits_for_last_days, build_graph, db, sections
 
-
+@permission_required('auth.view_user')
 def index(request):
     #register_visit(request=request)
     overtime_graph = build_graph(get_visits_for_last_days(datetime.now(), 10))
