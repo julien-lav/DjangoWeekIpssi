@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Ressources |{% endblock %}
+
+{% block content %}
+    <table class="table table-hover table-striped table-bordered">
+        <thead>
+            <th>URL</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a target="_blank" href="{{ resource.url }}">{{ resource.url }}</a></td>
+                <td class="text-right">
+                    <a href="edit"><i class="fa fa-edit"></i></a> |
+                    <a href="delete" onclick="return confirm('Voulez-vous vraiment supprimer l\'url {{ resource.url }}?');"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
