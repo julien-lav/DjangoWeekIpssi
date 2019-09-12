@@ -8,3 +8,5 @@ polls/migrations/__pycache__/*.pyc
 users/__pycache__/*.pyc
 users/migrations/__pycache__/*.pyc
 musicSchool/__pycache__/*.pyc
+dashboard/__pycache__/*.pyc
+dashboard/migrations/__pycache__/*.pyc

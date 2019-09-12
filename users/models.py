@@ -1,29 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-#from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 from PIL import Image
-
-#class User(AbstractUser):
-#    STUDENT = 1
-#    TEACHER = 2
-#    ROLE_CHOICES = (
-#        (STUDENT, 'Student'),
-#        (TEACHER, 'Teacher'),
-#    )
-#    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, null=True, blank=True)
-
+     
      
 class Profile(models.Model):
-    #STUDENT = 1
-    #TEACHER = 2
-    #ROLE_CHOICES = (
-    #    (STUDENT, 'Student'),
-    #    (TEACHER, 'Teacher'),
-    #)
-    #
-    #role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, null=True, blank=True)
- 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     city = models.CharField(null=True, blank=True, max_length=25)
