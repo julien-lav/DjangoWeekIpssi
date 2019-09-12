@@ -29,6 +29,7 @@ urlpatterns = [
     path('register/', user_views.register, name='register'),
     path('dashboard/', include('dashboard.urls')),
     path('resources/', include('resources.urls')),
+    path('courses/', include('courses.urls')),
     path('profile/', user_views.profile, name='profile'),
     ]
 
