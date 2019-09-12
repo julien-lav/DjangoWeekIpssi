@@ -1,3 +1,8 @@
-li {list-style:none;} 
+li {list-style:none;}
 .page-title {display:none;}
 .avatar {max-width: 3.5rem;}
+
+.fakeimg {
+  height: 200px;
+  background: #aaa;
+}

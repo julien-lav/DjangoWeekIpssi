@@ -34,7 +34,7 @@ def get_visits_by_sections():
     visits_by_sections = []
     for section in sections :
         visits = db["visits"].count({"page" : {'$regex' : '.*' + section + '.*'}})
-        visits_by_sections.append({"section": section, "visits": visits})
+        visits_by_sections.append({"section": section.replace('/', ''), "visits": visits})
     return visits_by_sections
 
 
@@ -69,7 +69,6 @@ def get_visits_for_last_days(date, days):
         days -= 1
 
     visits_for_last_days = loads(dumps(visits_for_last_days))
-    print(visits_for_last_days)
     return visits_for_last_days
 
 """
@@ -134,19 +133,18 @@ def autolabel(rects, ax):
                     ha='center', va='bottom')
 
 
-def build_graph(data):
+def build_graph(data, title):
     dates = []
     visits = []
 
     for object in data:
-        dates.append(object["day"])
+        dates.append(object["day"].strftime("%d/%m"))
         visits.append(object["visits"])
 
-    fig, axs = plt.subplots(1, 3, figsize=(9, 3), sharey=True)
-    axs[0].bar(dates, visits)
-    axs[1].scatter(dates, visits)
-    axs[2].plot(dates, visits)
-    fig.suptitle('Categorical Plotting')
+    fig, ax = plt.subplots()
+    ax.scatter(dates, visits)
+    ax.plot(dates, visits)
+    ax.set_title(title)
 
     buf = BytesIO()
     plt.savefig(buf, format='png', dpi=300)

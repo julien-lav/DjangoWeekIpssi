@@ -6,7 +6,6 @@ Django==2.2.1
 django-analytical==2.5.0
 django-crispy-forms==1.7.2
 django-phonenumber-field==3.0.1
-django-tempus-dominus==5.1.2.6.post1
 isort==4.3.21
 kiwisolver==1.1.0
 lazy-object-proxy==1.4.2
