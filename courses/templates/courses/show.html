@@ -22,6 +22,13 @@
                     <a href="delete" onclick="return confirm('Voulez-vous vraiment supprimer le cours {{ course.topic }}?');"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
+            {% for resource in resources %}
+                <tr>
+                    <td colspan="5">
+                        <a href="{{resource.url}}" target="_blank">{{ resource.url }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 

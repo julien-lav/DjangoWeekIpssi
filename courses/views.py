@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import CourseForm
 from django.contrib import messages
 from .models import Course, DAY_OF_THE_WEEK_CHOICES
+from resources.models import Resource
 
 def index(request):
     courses = Course.objects.filter(teacher=request.user)
@@ -9,8 +10,8 @@ def index(request):
 
 def show(request, course_id):
     course = Course.objects.get(id=course_id)
-    return render(request, 'courses/show.html', {'course': course})
-
+    resources = Resource.objects.filter(courses=course_id)
+    return render(request, 'courses/show.html', {'course': course,'resources': resources })
 
 def add(request):
     if request.method == 'POST':

@@ -8,7 +8,7 @@ DAY_OF_THE_WEEK_CHOICES = (
     (3, "Jeudi"),
     (4, "Vendredi"),
     (5, "Samedi"),
-    (6, "DImanche"),
+    (6, "Dimanche"),
 )
 
 class Course(models.Model):
@@ -21,3 +21,6 @@ class Course(models.Model):
     endTime = models.TimeField()
     teacher = models.ForeignKey(User, on_delete=models.CASCADE, related_name='course_teacher')
     students = models.ManyToManyField(User, related_name='course_students')
+    
+    def __str__(self):
+        return self.topic
