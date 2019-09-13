@@ -20,7 +20,8 @@ from .logic_for_dashboard import register_visit, get_visits, get_visits_by_secti
 @permission_required('auth.view_user')
 def index(request):
     #register_visit(request=request)
-    overtime_graph = build_graph(get_visits_for_last_days(datetime.now(), 10))
+    days = 10
+    overtime_graph = build_graph(get_visits_for_last_days(datetime.now(), days), "Visites sur les "+str(days)+" derniers jours")
 
     visits = get_visits()
     visits_by_sections = get_visits_by_sections()
