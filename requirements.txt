@@ -2,7 +2,7 @@ astroid==2.2.5
 Babel==2.7.0
 certifi==2019.6.16
 cycler==0.10.0
-Django==2.2.1
+Django==2.2.27
 django-analytical==2.5.0
 django-crispy-forms==1.7.2
 django-phonenumber-field==3.0.1
